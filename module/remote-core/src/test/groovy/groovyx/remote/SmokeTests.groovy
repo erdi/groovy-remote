@@ -337,5 +337,9 @@ class SmokeTests extends GroovyTestCase {
 	void testCanUseSpreadMapOperator() {
 		remote.exec {  new HashMap(*:[a: 1, b: 2]) }
 	}
+
+	void testExternalLibrariesExecutingCodeOnRemote() {
+		assert new RemoteCallingClass(remote).multiplyBy2OnRemote(3) == 6
+	}
 	
 }
